@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Privacy Policy — secretarIA</title>
+  <meta name="title-en" content="Privacy Policy — secretarIA">
+  <meta name="title-pt-BR" content="Política de Privacidade — secretarIA">
   <link rel="icon" href="logo.png">
   <style>
     :root { color-scheme: dark; --bg: #000; --card: #1c1c1e; --fg: #fff; --muted: #a1a1a8; --lime: #a6ff00; }
@@ -18,15 +20,25 @@
     table { width: 100%; border-collapse: collapse; font-size: 15px; }
     th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #38383a; vertical-align: top; }
     a { color: var(--lime); }
-    hr { border: 0; border-top: 1px solid #38383a; margin: 64px 0; }
-    nav a { margin-right: 16px; }
+    .top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 32px; }
+    .lang-switch { display: flex; gap: 4px; }
+    .lang-switch button { font: 600 14px/1 inherit; font-family: inherit; color: var(--muted); background: var(--card); border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+    .lang-switch button[aria-pressed="true"] { color: #000; background: var(--lime); }
+    .lang-switch button:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
 <main>
-  <nav><a href="index.html">← secretarIA</a><a href="#pt">Português (pt-BR)</a></nav>
+  <div class="top">
+    <a href="index.html" data-keep-lang>← secretarIA</a>
+    <nav class="lang-switch" aria-label="Language / Idioma">
+      <button type="button" data-set-lang="pt-BR" lang="pt-BR" aria-pressed="false">Português (BR)</button>
+      <button type="button" data-set-lang="en" lang="en" aria-pressed="false">English</button>
+    </nav>
+  </div>
 
-  <article lang="en" id="en">
+  <article lang="en" id="en" data-lang="en">
     <h1>Privacy Policy</h1>
     <p class="meta">secretarIA · Effective date: November 18, 2026</p>
 
@@ -91,9 +103,7 @@
     <p class="meta">Garmin and Garmin Connect are trademarks of Garmin Ltd. or its subsidiaries.</p>
   </article>
 
-  <hr>
-
-  <article lang="pt-BR" id="pt">
+  <article lang="pt-BR" id="pt" data-lang="pt-BR">
     <h1>Política de Privacidade</h1>
     <p class="meta">secretarIA · Vigente desde 18 de novembro de 2026</p>
 
@@ -158,5 +168,6 @@
     <p class="meta">Garmin e Garmin Connect são marcas registradas da Garmin Ltd. ou de suas subsidiárias.</p>
   </article>
 </main>
+<script src="lang.js"></script>
 </body>
 </html>

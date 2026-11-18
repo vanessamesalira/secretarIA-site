@@ -4,13 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>secretarIA — weekly planner for endurance athletes</title>
+  <meta name="title-en" content="secretarIA — weekly planner for endurance athletes">
+  <meta name="title-pt-BR" content="secretarIA — planner semanal para atletas de endurance">
   <meta name="description" content="secretarIA is a weekly planner for endurance athletes: today's training, appointments and what to prepare for tomorrow.">
   <link rel="icon" href="logo.png">
   <style>
-    :root { color-scheme: dark; --bg: #000; --card: #1c1c1e; --fg: #fff; --muted: #a1a1a8; --lime: #a6ff00; }
+    :root { color-scheme: dark; --bg: #000; --card: #1c1c1e; --raised: #2c2c2e; --fg: #fff; --muted: #a1a1a8; --lime: #a6ff00; }
     * { box-sizing: border-box; }
     body { margin: 0; background: var(--bg); color: var(--fg); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Inter", system-ui, sans-serif; }
-    main { max-width: 720px; margin: 0 auto; padding: 64px 20px; }
+    main { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
     img { width: 96px; height: 96px; border-radius: 22px; }
     h1 { font: 900 44px/1.1 ui-rounded, "SF Pro Rounded", -apple-system, sans-serif; margin: 24px 0 8px; }
     h1 span { color: var(--lime); }
@@ -20,23 +22,51 @@
     li strong { display: block; }
     footer { margin-top: 48px; color: var(--muted); font-size: 15px; }
     a { color: var(--lime); }
+    .lang-switch { display: flex; justify-content: flex-end; gap: 4px; margin-bottom: 24px; }
+    .lang-switch button { font: 600 14px/1 inherit; font-family: inherit; color: var(--muted); background: var(--card); border: 0; border-radius: 999px; padding: 8px 14px; cursor: pointer; }
+    .lang-switch button[aria-pressed="true"] { color: #000; background: var(--lime); }
+    .lang-switch button:focus-visible { outline: 2px solid var(--lime); outline-offset: 2px; }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
   <main>
-    <img src="logo.png" alt="secretarIA logo: three progress rings">
+    <nav class="lang-switch" aria-label="Language / Idioma">
+      <button type="button" data-set-lang="pt-BR" lang="pt-BR" aria-pressed="false">Português (BR)</button>
+      <button type="button" data-set-lang="en" lang="en" aria-pressed="false">English</button>
+    </nav>
+
+    <img src="logo.png" alt="secretarIA logo">
     <h1>secretar<span>IA</span></h1>
-    <p class="lead">A weekly planner for endurance athletes. Open the app in the morning and know exactly what to do today and what to get ready for tomorrow.</p>
-    <ul>
-      <li><strong>Today at a glance</strong>Training sessions, appointments and study blocks in one timeline, with schedule conflicts flagged.</li>
-      <li><strong>Ready for tomorrow</strong>The kit and extra equipment for tomorrow's workout, as a checklist for the night before.</li>
-      <li><strong>Your training, in sync</strong>Planned workouts and completed activities from Garmin Connect, shown only to you.</li>
-    </ul>
-    <footer>
-      <p>Operated by IVCODE LTDA · Contact: <a href="mailto:vanessa.mesalira@gmail.com">vanessa.mesalira@gmail.com</a></p>
-      <p><a href="privacy.html">Privacy Policy</a> · <a href="privacy.html#pt">Política de Privacidade (pt-BR)</a></p>
-      <p>Garmin and Garmin Connect are trademarks of Garmin Ltd. or its subsidiaries.</p>
-    </footer>
+
+    <div data-lang="en" lang="en">
+      <p class="lead">A weekly planner for endurance athletes. Open the app in the morning and know exactly what to do today and what to get ready for tomorrow.</p>
+      <ul>
+        <li><strong>Today at a glance</strong>Training sessions, appointments and study blocks in one timeline, with schedule conflicts flagged.</li>
+        <li><strong>Ready for tomorrow</strong>The kit and extra equipment for tomorrow's workout, as a checklist for the night before.</li>
+        <li><strong>Your training, in sync</strong>Planned workouts and completed activities from Garmin Connect, shown only to you.</li>
+      </ul>
+      <footer>
+        <p>Operated by IVCODE LTDA · Contact: <a href="mailto:vanessa.mesalira@gmail.com">vanessa.mesalira@gmail.com</a></p>
+        <p><a href="privacy.html" data-keep-lang>Privacy Policy</a></p>
+        <p>Garmin and Garmin Connect are trademarks of Garmin Ltd. or its subsidiaries.</p>
+      </footer>
+    </div>
+
+    <div data-lang="pt-BR" lang="pt-BR">
+      <p class="lead">Um planner semanal para atletas de endurance. Abra o app de manhã e saiba exatamente o que fazer hoje e o que deixar pronto para amanhã.</p>
+      <ul>
+        <li><strong>Seu dia num olhar</strong>Treinos, compromissos e blocos de estudo numa única linha do tempo, com os conflitos de horário em destaque.</li>
+        <li><strong>Pronto para amanhã</strong>O kit e o equipamento extra do treino de amanhã, como checklist para a noite anterior.</li>
+        <li><strong>Seus treinos, sincronizados</strong>Treinos planejados e atividades concluídas do Garmin Connect, visíveis só para você.</li>
+      </ul>
+      <footer>
+        <p>Operado pela IVCODE LTDA · Contato: <a href="mailto:vanessa.mesalira@gmail.com">vanessa.mesalira@gmail.com</a></p>
+        <p><a href="privacy.html" data-keep-lang>Política de Privacidade</a></p>
+        <p>Garmin e Garmin Connect são marcas registradas da Garmin Ltd. ou de suas subsidiárias.</p>
+      </footer>
+    </div>
   </main>
+  <script src="lang.js"></script>
 </body>
 </html>
